@@ -1,0 +1,17 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ${NAME}ServiceImpl implements ${NAME}Service {
+    @Autowired
+    ${NAME}DAO ${name}DAO;
+
+    @Override
+    public List<${NAME}> get${NAME}s() {
+        return ${name}DAO.get${NAME}s();
+    }
+}

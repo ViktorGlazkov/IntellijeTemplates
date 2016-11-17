@@ -1,0 +1,24 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@SuppressWarnings("unchecked")
+@Repository
+@Transactional
+public class ${NAME}DAOImpl implements ${NAME}DAO {
+
+    @Autowired
+    SessionFactory sessionFactory;
+
+    @Override
+    public List<${NAME}> get${NAME}s() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from ${NAME}").list();
+    }
+}
