@@ -8,10 +8,30 @@ import java.util.List;
 @Service
 public class ${NAME}ServiceImpl implements ${NAME}Service {
     @Autowired
-    ${NAME}DAO ${name}DAO;
+    ${NAME}DAO ${objectName}DAO;
 
     @Override
     public List<${NAME}> get${NAME}s() {
-        return ${name}DAO.get${NAME}s();
+        return ${objectName}DAO.get${NAME}s();
+    }
+
+    @Override
+    public void create${NAME}(${NAME} ${objectName}) {
+        ${objectName}DAO.create${NAME}(${objectName});
+    }
+
+    @Override
+    public ${NAME} get${NAME}(Long id) {
+        return ${objectName}DAO.get${NAME}(id);
+    }
+
+    @Override
+    public void update${NAME}(${NAME} ${objectName}) {
+        ${objectName}DAO.update${NAME}(${objectName});
+    }
+
+    @Override
+    public void delete${NAME}(Long id) {
+        ${objectName}DAO.delete${NAME}(id);
     }
 }

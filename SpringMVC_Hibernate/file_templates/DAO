@@ -21,4 +21,29 @@ public class ${NAME}DAOImpl implements ${NAME}DAO {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("from ${NAME}").list();
     }
+
+    @Override
+    public void create${NAME}(${NAME} ${objectName}) {
+        Session session = sessionFactory.getCurrentSession();
+        session.save(${objectName});
+    }
+
+    @Override
+    public ${NAME} get${NAME}(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(${NAME}.class, id);
+    }
+
+    @Override
+    public void update${NAME}(${NAME} ${objectName}) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(${objectName});
+    }
+
+    @Override
+    public void delete${NAME}(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        ${NAME} ${objectName} = get${NAME}(id);
+        session.delete(${objectName});
+    }
 }

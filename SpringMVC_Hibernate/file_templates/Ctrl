@@ -1,0 +1,41 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class ${NAME}Controller {
+    @Autowired
+    ${NAME}Service ${objectName}Service;
+
+    @RequestMapping(value = {"/", "/${objectName}s"}, method = RequestMethod.GET)
+    @ResponseBody
+    public List<${NAME}> get${NAME}s() {
+        return ${objectName}Service.get${NAME}s();
+    }
+    
+    @RequestMapping(value = {"/${objectName}"}, method = RequestMethod.POST)
+    public void create${NAME}(@RequestBody ${NAME} ${objectName}) {
+        ${objectName}Service.create${NAME}(${objectName});
+    }
+
+    @RequestMapping(value = {"/${objectName}/{id}"}, method = RequestMethod.GET)
+    public void read${NAME}(@PathVariable Long id) {
+        ${objectName}Service.get${NAME}(id);
+    }
+
+    @RequestMapping(value = {"/${objectName}"}, method = RequestMethod.PUT)
+    public void update${NAME}(@RequestBody ${NAME} ${objectName}) {
+        ${objectName}Service.update${NAME}(${objectName});
+    }
+
+    @RequestMapping(value = {"/${objectName}/{id}"}, method = RequestMethod.DELETE)
+    public void delete${NAME}(@PathVariable Long id) {
+        ${objectName}Service.delete${NAME}(id);
+    }
+}
